@@ -1,4 +1,4 @@
-## NSCONMSG Query Cheatsheet
+## NSCONMSG Queries from the field
 [Table of contents](README.md)
 
 
