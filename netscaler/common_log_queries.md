@@ -1,3 +1,3 @@
 ## Common Log Queries
-[Table of contents](toc.md)
+[Back to Netscaler](netscaler.md)
 
