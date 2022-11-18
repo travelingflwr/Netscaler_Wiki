@@ -1,5 +1,5 @@
 ## NSCONMSG Query Cheatsheet
-[Table of contents](toc.md)
+[Table of contents](README.md)
 
 
 ### Display start and end time information
