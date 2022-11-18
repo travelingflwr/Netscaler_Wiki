@@ -27,14 +27,14 @@ nsconmsg -K newnslog -d devname | grep 165.130.1.17
 
 nsconmsg -K newnslog -d devname | grep 165.130.1.17
 
-nsconmsg -j Citrix_TPV_SSLBridge -s ConLb=3 -d oldconmsg
+nsconmsg -j CVSERVER_NAME -s ConLb=3 -d oldconmsg
 
  
-nsconmsg -K newnslog.177 -j lb-PRIME-MS3-NA6-IAD-4091 -s ConLb=2 -d oldconmsg | awk '/current time/ {print "\n"; print $0;getline; print $0} /slimit_SO/ {print $0} /S\(/ {print $0} /slimit_maxClient/ {print $0}' | more
+nsconmsg -K newnslog.177 -j VSERVER_NAME -s ConLb=2 -d oldconmsg | awk '/current time/ {print "\n"; print $0;getline; print $0} /slimit_SO/ {print $0} /S\(/ {print $0} /slimit_maxClient/ {print $0}' | more
 
-nsconmsg -K newnslog.177 -j lb-PRIME-MS3-NA6-IAD-4091 -s ConLb=2 -d oldconmsg | awk '/current time/ {print "\n"; print $0;getline; print $0} /slimit_SO/ {print $0} /OFS/ {print $0} /slimit_maxClient/ {print $0}' > ofs.txt
+nsconmsg -K newnslog.177 -j VSERVER_NAME -s ConLb=2 -d oldconmsg | awk '/current time/ {print "\n"; print $0;getline; print $0} /slimit_SO/ {print $0} /OFS/ {print $0} /slimit_maxClient/ {print $0}' > ofs.txt
 
-nsconmsg -K newnslog.186 -i lb-AWS-ARS-PDX1 -s time=21jan2017:13:00 -s ConLb=2 -d oldconmsg | more
+nsconmsg -K newnslog.186 -i VSERVER_NAME -s time=21jan2017:13:00 -s ConLb=2 -d oldconmsg | more
 
 nsconmsg93 -K newnslog.125 -g cons_si_tot_mon_time -s disptime=1 -d current | grep ':5043' | less
  
@@ -49,8 +49,6 @@ nsconmsg93 -K newnslog.96 -g TotalSession -g KeyEx -g ServerIn -g ssl_cur_q -g c
 for i in newnslog*;do echo ---$i;nsconmsg93 -K $i -s disptime=1 -g ha_cur_hasync_pcb -g ha_tot_sync_connects -d current | more;done
 
 for i in newnslog*;do echo ---$i; nsconmsg -K $i -s disptime=1 -g cc_cpu_use -d current | more;done
- 
-cd /apollo/env/ShowTechV2/var/raw_collector_files/
  
 for file in newnslog*.tar.gz; do tar -zxf $file; done
 rm newnslog.*.tar.gz
@@ -125,12 +123,9 @@ nsconmsg -g snmp_tot_traps -g snmp_err_req_dropped -d current
 Command to display errors for all non-zero counters:
 nsconmsg -g err -d statswt0
  
-Command to show all events in the newnslog (UP/Down):
-LCM
- 
 Command to display all current TCP Client connections based on time:
 nsconmsg -K newnslog -g tcp_cur_ClientConnEst -s time=21Sep2007:11:00 -d current
-q
+
 Command to display NIC bandwidth based on time:
 nsconmsg -K newnslog -g mbits -s time=20Sep2007:14:14 -d current
  
