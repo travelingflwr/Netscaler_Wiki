@@ -6,20 +6,21 @@ Copy and paste this into the Netscaler CLI (not shell)
 	
 	show hostname; shell uptime; show version; show hardware; shell /bin/sh -c "sysctl netscaler | grep 'sysid\|serial\|descr\|num_pe_running'"; shell df; show license; shell /bin/sh -c "grep 'avail memory' /var/nslog/dmesg*"; stat system -detail | grep 'Power supply'; shell /bin/sh -c "ipmitool sel elist | tail -10"; shell /bin/sh -c "ipmitool sensor list | grep 'PS_'"; shell ipmitool mc info
 
-This could also be a handy troubleshooting tool for gather output.  I'll break out the individual commands later on this page
+This could also be a handy troubleshooting tool for gather output.  Breaking out the commands and their importance.
 
-| Command        | Description |
-| :---           | :----   |
-| show hostname  | show hostname      | 
-| show hostname |	test		|
-| 	shell uptime |	test		|
-| 	show version |	test		|
-| 	show hardware |test			|
-| 	shell /bin/sh -c "sysctl netscaler &#124; grep 'sysid\|serial\|descr\|num_pe_running'" |	test		|
-|	shell df |	test		|
-|	show license |	test		|
+Supplying the output in a case can help to fast track a support or escalation engineer can get up to speed on your issue.
+
+| Command						| Description 								|
+| :---           				| :----   									|
+| show hostname  				| Identifies the system that the logs belong to - Useful in the cases where multiple log bundles are being investigated | 
+| 	shell uptime 				| Shows the uptime for the system - useful in determining if uptime may be an issue |
+| 	show version 				| SHows which Netscaler build is on the system |
+| 	show hardware 				| Shows the platform the system is and also the serial number			|
+| 	shell /bin/sh -c "sysctl netscaler &#124; grep 'sysid&#92;&#124;serial&#92;&#124;descr&#92;&#124;num_pe_running'" |	test		|
+|	shell df 					|	test		|
+|	show license 				|	test		|
 |	shell /bin/sh -c "grep 'avail memory' /var/nslog/dmesg*"; stat system -detail &#124; grep 'Power supply' |	test		|
 |	shell /bin/sh -c "ipmitool sel elist &#124; tail -10" |	test		|
 |	shell /bin/sh -c "ipmitool sensor list &#124; grep 'PS_'" |	test		|
-|	shell ipmitool mc info |	test		|
+|	shell ipmitool mc info 		|	test		|
 	
