@@ -2,6 +2,9 @@
 [Back to Netscaler](netscaler.md)
 
 ### The number one useful data for your support case!!
+Identify and communicate in the submitted case the impact of your problem.  We are all engineers and nearly all engineers forget this but it's the most useful data for priortizing and triaging a case.
+
+If a support engineer knows that "your issue" is impacting 500, 1000, all of your users, they are most likely going to start on your case ahead of others with no or lessa stated impact.  If you open a case via the web portal as a Sev 2 and the support engineer sees a large impact, they are most likeley going to bump your case to a Sev 1 to get some additiona urgency and help on the case.  If you have Priority Support, a Sev 1 case will trigger CritSit which is a really good thing for you.
 
 ### Here's a one liner for getting a ton of relevant information to provide in a support case
 Copy and paste this into the Netscaler CLI (not shell)
