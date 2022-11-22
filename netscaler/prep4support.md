@@ -31,7 +31,7 @@ Supplying the output in a case can help to fast track a support or escalation en
 	
 
 
-	```
+```
 {
   "firstName": "John",
   "lastName": "Smith",
