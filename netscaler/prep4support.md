@@ -29,3 +29,12 @@ Supplying the output in a case can help to fast track a support or escalation en
 |	shell /bin/sh -c "ipmitool sensor list &#124; grep 'PS_'" |	System power supply status		|
 |	shell ipmitool mc info 		|	More power supply data		|
 	
+
+
+	```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
