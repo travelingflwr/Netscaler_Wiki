@@ -18,3 +18,15 @@
 
 ### Loop through all open newnslogs to interface errors
 	for i in $(ls -d /var/nslog/newnslog*[!tar.gz]) ; do echo ---$i ; nsconmsg -K $i -s disptime=1 -g nic_err -d current | more; done
+
+### Command to get the setime from new ncore newnslog files in directories and to exclude the tar.gz files
+	for i in $(ls -d newnslog.*[!tar.gz]); do echo "==================$i===================";nsconmsg -K $i -d setime; echo ""; done
+
+### Command to look at VPN/ICA user details
+	nsconmsg -K newnslog -g curAaaUsersPerVserver -g si_curaaausers -g maxsslvpnusers -g svpn_lic_failed -g svpn_maxusers_lic_failed -g ica_license_failure -g tot_lic_shared_ica_vpn -g total_ica_connections -s disptime-1 -d current | more
+
+### Command to look at total ICA users and ICA license failures:
+	nsconmsg -K newnslog -g ica_license -g total_ica_connections -s disptime=1 -d current | more
+
+### Command to look for monitor stats, print current time, and print 8 lines after monitor match:
+	nsconmsg9 -K newnslog -s ConMon=3 -d oldconmsg | nawk '/current time/ {print $0} /172.29.189.217:3306/ {print;n=8;next}n{print;n--}' > mysql_mon.log
